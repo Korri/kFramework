@@ -1,0 +1,41 @@
+{% extends "backend/default_layout.html" %}
+
+{% block title %}Nouvel Article{% endblock %}
+{% block content %}
+    <h1>Ajouter un article</h1>
+    <form action="{{ 'new_article'|u }}?article={{ article.id }}" method="post">
+        <fieldset>
+            <legend>Informations</legend>
+            <p>
+                <label for="title">
+                    Titre :
+                </label>
+                <input type="text" class="title" name="title" value="{{ article.title }}" />
+            </p>
+            <p>
+                <label for="title">
+                    Url :
+                </label>
+                <input type="text" class="url" name="url" value="{{ article.url }}" />
+            </p>
+            <p>
+                <label for="content">
+                    Contenu :
+                </label>
+                <textarea name="content">{{ article.content|escape }}</textarea>
+            </p>
+            <p>
+                <label for="tags">
+                    Tags :
+                </label>
+                <select name="tags" multiple="multiple" id="tags" class="tags">
+                    {% for tag in article.tags %}
+                    <option class="selected" value="{{ tag }}">{{ tag }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <input type="submit" name="submit" class="orange" value="Enregistrer le brouillon" />
+            <input type="submit" name="submit" class="green" value="Poster L'article" />
+        </fieldset>
+    </form>
+{% endblock %}
