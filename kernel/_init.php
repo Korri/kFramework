@@ -13,6 +13,7 @@ define('BASE_FOLDER', '/Korri2/');
 define('STATIC_FOLDER', BASE_FOLDER.'/static/');
 define('CSS_FOLDER', BASE_FOLDER.'/static/');
 define('IMAGE_FOLDER', BASE_FOLDER.'/static/images/');
+define('TWIG_CACHE_DIR', BASE_FOLDER.'/static/cache/');
 
 function my_autoload($class) {
     @include(KERNEL_DIR . $class . '.php');

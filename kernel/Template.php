@@ -13,8 +13,12 @@ class Template {
     public function __construct()
     {
         $loader = new Twig_Loader_Filesystem(PAGES_DIR);
-        $this->twig = new Twig_Environment($loader, array());
+        $this->twig = new Twig_Environment($loader, array(
+            'cache' => TWIG_CACHE_DIR
+        ));
+        //Url filter
         $this->twig->addFilter('u', new Twig_Filter_Function('Template::u'));
+        
     }
     public static function ucpage($page) {
         $page = str_replace('_', ' ', $page);
