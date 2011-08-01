@@ -1,4 +1,9 @@
 <?php
+
+if(!defined('__DIR__')) {
+    define('__DIR__', dirname(__FILE__));
+}
+
 define('KERNEL_DIR', __DIR__.'/');
 define('BASE_DIR', realpath(__DIR__.'/../').'/');
 define('PAGES_DIR', realpath(__DIR__.'/../').'/pages/');
@@ -22,6 +27,6 @@ spl_autoload_register('my_autoload');
 /**
  * @global Database $db
  */
-$db = new Database('localhost', 'root', '', 'korri');
+//$db = new Database('localhost', 'login', 'pass', 'database');
 
 ?>
